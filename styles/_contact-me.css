@@ -1,0 +1,194 @@
+.contact-me {
+  --contact-me-title-font-size: 7rem;
+
+  --graphic-padding: 32px;
+  --graphic-vertical-spacing: 8px;
+  --graphic-pattern-height: 48px;
+  --graphic-pattern-alternate-offset: -54px;
+
+  height: 100%;
+  background: var(--color-dark);
+  display: grid;
+  grid-template-rows: 1fr 0;
+  transition: grid-template-rows var(--transition-speed-slow) ease-out;
+}
+
+.contact-me:hover {
+  grid-template-rows: 1fr calc(
+      var(--graphic-padding) + (2 * var(--graphic-pattern-height) + var(--graphic-vertical-spacing))
+    );
+}
+
+.contact-me__content {
+  display: grid;
+  grid-template-rows: 10rem max-content max-content;
+  grid-auto-flow: row;
+  row-gap: 3rem;
+}
+
+.contact-me__title {
+  font-family: var(--font-family-headings);
+  font-size: var(--contact-me-title-font-size);
+  line-height: 0.8;
+  text-transform: uppercase;
+  color: var(--color-light-grey);
+  text-align: center;
+  grid-row: 2;
+}
+
+.contact-me__details {
+  --min-text-width: 34ch;
+  --gap-size: 2rem;
+  --arrow-width: 50px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-size);
+  color: var(--color-light-grey);
+  grid-row: 3;
+}
+
+.contact-me__details > * {
+  flex: 1 1 calc(50% - var(--gap-size) - var(--arrow-width));
+  min-width: 360px;
+  margin: 0 auto;
+}
+
+.contact-me__details-title {
+  text-align: right;
+  font-size: 1rem;
+  font-weight: normal;
+  position: relative;
+  align-self: flex-start;
+  padding-right: var(--arrow-width);
+}
+
+.contact-me__details-title::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: var(--arrow-width);
+  position: absolute;
+  background: url("../assets/arrow-light.svg") no-repeat;
+  background-position: 0 75%;
+}
+
+.contact-me__details-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 0.25rem;
+}
+
+.contact-me__details-item {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  transition: opacity ease var(--transition-speed-fast);
+}
+
+.contact-me__details-item:has(a[href]):hover {
+  opacity: 0.5;
+}
+
+.contact-me__details-item::before {
+  content: "";
+  width: 1.5rem;
+  height: 1.5rem;
+  display: inline-block;
+  margin-right: 8px;
+  background-size: calc(100% - 4px);
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+
+.contact-me__details-item--linkedin::before {
+  background-image: url("../assets/linkedin.svg");
+}
+
+.contact-me__details-item--github::before {
+  background-image: url("../assets/github.svg");
+}
+
+.contact-me__details-item--instagram::before {
+  background-image: url("../assets/instagram.svg");
+}
+
+.contact-me__details-item-note {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--color-dark-grey);
+}
+
+.contact-me__footer {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  color: var(--color-light-grey);
+  padding-block: 1.5rem;
+  align-self: flex-end;
+}
+
+.contact-me__footer > * {
+  flex: 1 0 50%;
+  font-size: 0.75rem;
+  color: var(--color-dark-grey);
+  white-space: nowrap;
+  text-align: center;
+}
+
+.contact-me__graphic {
+  position: relative;
+  overflow: hidden;
+  background: var(--gradient-accent);
+}
+
+.contact-me__graphic::before,
+.contact-me__graphic::after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: var(--graphic-pattern-height);
+  background: url("../assets/logo.svg") repeat-x center bottom / auto var(--graphic-pattern-height);
+}
+
+.contact-me__graphic::before {
+  bottom: 0;
+}
+
+.contact-me__graphic::after {
+  bottom: calc(var(--graphic-pattern-height) + var(--graphic-vertical-spacing));
+  left: var(--graphic-pattern-alternate-offset);
+}
+
+@media (max-width: 768px) {
+  .contact-me__details {
+    max-width: 40ch;
+    margin: 0 auto;
+  }
+
+  .contact-me__details > * {
+    text-align: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contact-me {
+    --graphic-padding: 16px;
+    --graphic-vertical-spacing: 4px;
+    --graphic-pattern-height: 32px;
+    --graphic-pattern-alternate-offset: -34px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-me__footer > :nth-child(odd) {
+    text-align: left;
+  }
+
+  .contact-me__footer > :nth-child(even) {
+    text-align: right;
+  }
+}

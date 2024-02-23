@@ -1,0 +1,32 @@
+:root {
+  --color-dark: rgb(38 38 38);
+  --color-dark-grey: rgb(89 89 89);
+  --color-grey: rgb(191 191 191);
+  --color-light-grey: rgb(242 242 242);
+
+  --color-accent-1: rgb(193 62 101);
+  --color-accent-2: rgb(255 153 64);
+  --color-accent-3: rgb(255 228 82);
+  --color-accent-4: rgb(102 255 196);
+  --color-accent-5: rgb(0 146 158);
+
+  --gradient-accent: linear-gradient(
+    -45deg,
+    var(--color-accent-5) 0%,
+    var(--color-accent-4) 25%,
+    var(--color-accent-3) 50%,
+    var(--color-accent-2) 75%,
+    var(--color-accent-1) 100%
+  );
+
+  --transition-speed-instant: 0.01ms;
+  --transition-speed-fast: 100ms;
+  --transition-speed-moderate: 200ms;
+  --transition-speed-slow: 400ms;
+
+  --base-background-color: var(--color-light-grey);
+  --base-text-color: var(--color-dark);
+
+  --font-family-headings: "League Gothic", sans-serif;
+  --font-family-body: "Source Sans 3", sans-serif;
+}
