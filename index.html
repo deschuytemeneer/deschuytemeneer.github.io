@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>deschuytemeneer.github.io | Welcome to my portfolio!</title>
+    <title>deschuytemeneer.github.io | Welcome to my portfolio website!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,6 +11,7 @@
       rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=League+Gothic" rel="stylesheet" />
     <link rel="stylesheet" href="styles/index.css" />
+    <script defer type="module" src="scripts/index.js"></script>
   </head>
   <body>
     <main>
@@ -44,6 +45,50 @@
               to take that old, outdated code and polish it up, making it all nice and
               <strong>shiny</strong> again.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="showcase" class="page">
+        <div class="page__fullwidth showcase">
+          <h1 class="showcase-heading"><span data-repeat="showcase">Project showcase</span></h1>
+          <div class="grid showcase__content">
+            <h1 class="grid__content showcase-heading showcase-heading--inline">Project showcase</h1>
+            <dmr-drawer class="grid__content showcase-item">
+              <div class="showcase-item__image">
+                <img
+                  src="./assets/project-showcase-roel.png"
+                  alt="A desktop screen and a mobile screen, both showing a showcase website" />
+              </div>
+              <h2 class="showcase-item__title">Portfolio Website for a Composer</h2>
+              <div class="showcase-item__description">
+                <div class="showcase-item__description-content">
+                  <p>
+                    In 2023, I built a showcase for a friend of mine, who is a composer. He had made
+                    a rough design with wix, which I then converted into a "proper" website. As he
+                    wanted to be able to add, modify and delete content at any point in the future,
+                    I decided on a CMS approach. Additionally, we settled for a headless CMS both
+                    liked the decoupling of the content from the design, which was pretty set in
+                    stone anyway.
+                  </p>
+                  <p>
+                    In the end, I decided on Contentful as a CMS. I built the front end using
+                    Gatsby, since I liked the integration it provided with Contentful. I had also
+                    recently learned of chakra-ui, and the "utility-based" components and well
+                    thought out theming system seemed like a good fit for this project.
+                  </p>
+                </div>
+              </div>
+              <dmr-toggle class="showcase-item__read-more-toggle">
+                <span class="showcase-item__read-more-toggle-on-label">Read more.</span>
+                <span class="showcase-item__read-more-toggle-off-label">Read less.</span>
+              </dmr-toggle>
+              <ul class="showcase-item__tags">
+                <li class="showcase-item__tag">Gatsby</li>
+                <li class="showcase-item__tag">Contentful</li>
+                <li class="showcase-item__tag">chakra-ui</li>
+              </ul>
+            </dmr-drawer>
           </div>
         </div>
       </section>
