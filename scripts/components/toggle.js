@@ -33,10 +33,10 @@ export class Toggle extends DMRElement {
 
   mapStateToAttributes() {
     if (this.#isToggled) {
-      this.setAttribute("toggled-on", true);
+      this.setAttribute("toggled-on", "");
       this.removeAttribute("toggled-off");
     } else {
-      this.setAttribute("toggled-off", true);
+      this.setAttribute("toggled-off", "");
       this.removeAttribute("toggled-on");
     }
   }

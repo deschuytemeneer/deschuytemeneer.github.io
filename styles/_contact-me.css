@@ -27,6 +27,9 @@
 }
 
 .contact-me__title {
+  --desired-start-ratio: 0.35;
+  --desired-end-ratio: 1;
+
   font-family: var(--font-family-headings);
   font-size: var(--contact-me-title-font-size);
   line-height: 0.8;

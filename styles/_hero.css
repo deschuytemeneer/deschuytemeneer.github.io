@@ -13,6 +13,9 @@
 }
 
 .hero__title {
+  --desired-start-ratio: 1;
+  --desired-end-ratio: 0.45;
+
   grid-area: title;
   justify-self: flex-start;
   font-family: var(--font-family-headings);

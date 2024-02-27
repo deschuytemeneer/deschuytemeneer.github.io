@@ -1,0 +1,55 @@
+/*
+The parallax-gradient-text utility class adds a gradient background on the text of an element that
+moves as the user scrolls past the text. The vertical position of the gradient background is
+determined in function of the `--intersection-ratio` CSS variable, which is not managed by this
+class (and thus should come from elsewhere). By default, if `--intersection-ratio` is 1, the
+background will be aligned with the top of the text, and if `--intersection-ratio` is 0, the
+background will, subsequently, be aligned with the bottom of the text. We can customize between
+which `--intersection-ratio` values the parallax effect should happen by setting the
+`--desired-start-ratio` and `--desired-end-ratio` CSS variables. One can also set the end ratio
+lower than the start to invert the parallax effect.
+*/
+.--parallax-gradient-text {
+  /*
+  How many times higher than our text the gradient image should be. The higher this number, the
+  more exaggerated the parallax effect will be.
+   */
+  --parallax-image-scale: 8;
+
+  /*
+  If we denote the function of our parallax effect's position to be
+  
+    parallax-position = slope * intersection-ratio + intercept
+
+  then the domain of this function is [0, 1] and the range is [1, 0]. The domain can be tightened by
+  setting the `--desired-start-ratio` and `--desired-end-ratio` values.
+  */
+  --_x1: var(--desired-start-ratio, 1);
+  --_y1: 0;
+  --_x2: var(--desired-end-ratio, 0);
+  --_y2: 1;
+
+  /*
+  We calculate our slope and intercept from our two points ...
+  */
+  --_slope: calc((var(--_y2) - var(--_y1)) / (var(--_x2) - var(--_x1)));
+  --_intercept: calc(var(--_y1) - (var(--_slope) * var(--_x1)));
+
+  /*
+  Et voilà!
+  */
+  --parallax-position: calc((var(--_slope) * var(--intersection-ratio, 1)) + var(--_intercept));
+
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+
+  background-color: var(--color-accent-3);
+  background-image: var(--gradient-accent);
+  background-repeat: no-repeat;
+  background-size: auto calc(100% * var(--parallax-image-scale));
+  background-position-x: 50%;
+  background-position-y: calc(100% * var(--parallax-position));
+}
