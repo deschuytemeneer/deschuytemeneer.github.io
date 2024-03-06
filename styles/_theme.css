@@ -4,6 +4,13 @@
   --color-grey: rgb(191 191 191);
   --color-light-grey: rgb(242 242 242);
 
+  /* colors as a filter for black svg images */
+  /* calculated using this https://codepen.io/sosuke/pen/Pjoqqp */
+  --color-dark-filter: invert(14%) sepia(1%) saturate(896%) hue-rotate(47deg) brightness(107%)
+    contrast(100%);
+  --color-light-grey-filter: invert(100%) sepia(37%) saturate(124%) hue-rotate(245deg)
+    brightness(119%) contrast(90%);
+
   --color-accent-1: rgb(193 62 101);
   --color-accent-2: rgb(255 153 64);
   --color-accent-3: rgb(255 228 82);
@@ -28,5 +35,28 @@
   --base-text-color: var(--color-dark);
 
   --font-family-headings: "League Gothic", sans-serif;
+  --font-size-headings: 6rem;
   --font-family-body: "Source Sans 3", sans-serif;
+
+  --content-margin: 1rem;
+}
+
+@media (min-width: 420px) {
+  :root {
+    --content-margin: 2rem;
+    --font-size-headings: 7rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --content-margin: 5rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  :root {
+    --content-margin: 7.5rem;
+    --font-size-headings: 9rem;
+  }
 }

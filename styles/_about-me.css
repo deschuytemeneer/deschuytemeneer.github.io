@@ -1,6 +1,7 @@
 .about-me {
   border: 8px solid var(--color-dark);
   padding: 6rem 2rem;
+  margin-block: 2rem;
 }
 
 .about-me__title {

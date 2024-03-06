@@ -1,0 +1,75 @@
+.footer {
+  --graphic-padding: 32px;
+  --graphic-vertical-spacing: 8px;
+  --graphic-pattern-height: 48px;
+  --graphic-pattern-alternate-offset: -54px;
+
+  background: var(--color-dark);
+  position: relative;
+  overflow: hidden;
+  background: var(--gradient-accent);
+  min-height: 25vh;
+
+  display: grid;
+  grid-template-rows: min-content calc(
+      var(--graphic-padding) + (2 * var(--graphic-pattern-height) + var(--graphic-vertical-spacing))
+    );
+}
+
+.footer::before,
+.footer::after {
+  content: "";
+  position: absolute;
+  width: 120%;
+  height: var(--graphic-pattern-height);
+  background: url("../assets/logo.svg") repeat-x center bottom / auto var(--graphic-pattern-height);
+}
+
+.footer::before {
+  bottom: 0;
+}
+
+.footer::after {
+  bottom: calc(var(--graphic-pattern-height) + var(--graphic-vertical-spacing));
+  left: var(--graphic-pattern-alternate-offset);
+}
+
+.footer__content {
+  background: var(--color-dark);
+}
+
+.footer__details {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 0.5rem;
+  color: var(--color-light-grey);
+  padding-block: 1.5rem;
+  align-self: flex-end;
+}
+
+.footer__details > * {
+  flex: 1 0 50%;
+  font-size: 0.75rem;
+  color: var(--color-dark-grey);
+  white-space: nowrap;
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    --graphic-padding: 16px;
+    --graphic-vertical-spacing: 4px;
+    --graphic-pattern-height: 32px;
+    --graphic-pattern-alternate-offset: -34px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer__details > :nth-child(odd) {
+    text-align: left;
+  }
+
+  .footer__details > :nth-child(even) {
+    text-align: right;
+  }
+}
